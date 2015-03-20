@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %title Roi Et City Hotel
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    -# Alert and Notice
+    - if notice
+      :javascript
+        $(document).ready(function(){
+          UIkit.notify({
+            message : '#{notice}',
+            status : 'primary',
+            timeout : 3000,
+            pos : 'top-center'
+          });
+        });
+    - if alert
+      :javascript
+        $(document).ready(function(){
+          UIkit.notify({
+            message : '#{alert}',
+            status : 'danger',
+            timeout : 3000,
+            pos : 'top-center'
+          });
+        });
+  %body
+    %nav.uk-navbar
+      %ul.uk-navbar-nav
+        %li= link_to "Main", index_path
+        %li.uk-parent{"data-uk-dropdown" => true}
+          = link_to "Users", "#"
+          .uk-dropdown.uk-dropdown-navbar
+            %ul.uk-nav.uk-nav-navbar
+              %li= link_to "Users", users_path
+              %li= link_to "New User", new_user_path
+      .uk-navbar-flip
+        %ul.uk-navbar-nav
+          %li.uk-parent{"data-uk-dropdown" => true}
+            = link_to "#{session[:user_name]}", "#"
+            .uk-dropdown.uk-dropdown.navbar
+              %ul.uk-nav.uk-nav-navbar
+                %li= link_to "ออกจากระบบ", authen_logout_path, method: :delete, data: {confirm: "ยืนยันการออกจากระบบ"}
+    .uk-container.uk-margin-top
+      = yield
