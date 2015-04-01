@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 #  get 'main/index'
 
   resources :users ,except: [:show]
-  
+
+  get 'index' => 'main#index'
+
   get 'authen/login' => 'authen#new'
   post 'authen/login' => 'authen#create'
   delete 'authen/logout' => 'authen#destroy'
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'main#index', as: 'index'
+  root 'authen#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

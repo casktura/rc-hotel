@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :only_admin
   before_action :only_root, only: [:create, :update, :destroy]
-  
+
   # GET /users
   # GET /users.json
   def index
@@ -70,17 +70,5 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :username, :password, :password_confirmation, :privilege)
-    end
-  
-    def only_root
-      unless session[:root]
-        redirect_to users_path, alert: "ท่านไม่มีสิทธิ์ใช้งานในส่วนนี้"
-      end
-    end
-  
-    def only_admin
-      unless session[:admin]
-        redirect_to index_path, alert: "ท่านไม่มีสิทธิ์ใช้งานในส่วนนี้"
-      end
     end
 end

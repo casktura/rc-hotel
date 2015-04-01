@@ -1,19 +1,23 @@
 - show_password = false
-%h1 รายชื่อ Users
-%table.uk-table.uk-table-hover
-  %tr
-    %th ชื่อ - สกุล
-    %th ชื่อผู้ใช้ (สำหรับการเข้าสู่ระบบ)
-    - if show_password
-      %th รหัสผ่าน
-    %th สิทธิ์การเข้าใช้
-    %th{colspan: "2"}
-  - @users.each do |user|
-    %tr
-      %td= user.name
-      %td= user.username
-      - if show_password
-        %td= user.password_digest
-      %td= user.privilege
-      %td= link_to content_tag(:i, "Edit", class: "fa fa-pencil-square-o"), edit_user_path(user)
-      %td= link_to content_tag(:i, "Delete", class: "fa fa-trash-o"), user, method: :delete, data: {confirm: "Are you sure to delete \"#{user.name}\""}
+.ui.padded.grid
+  .column
+    %h1 Listing Users
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th ชื่อ - สกุล
+          %th ชื่อผู้ใช้ (สำหรับการเข้าสู่ระบบ)
+          - if show_password
+            %th รหัสผ่าน
+          %th สิทธิ์การเข้าใช้
+          %th{colspan: "2"}
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.name
+            %td= user.username
+            - if show_password
+              %td= user.password_digest
+            %td= user.privilege
+            %td= link_to content_tag(:i, "", class: "edit icon") + "Edit", edit_user_path(user)
+            %td= link_to content_tag(:i, "", class: "trash icon") + "Delete", user, method: :delete, data: {confirm: "Are you sure to delete \"#{user.name}\""}

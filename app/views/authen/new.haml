@@ -1,39 +1,21 @@
-!!!
-%html.uk-height-1-1
-  %head
-    %title Roi Et City Hotel
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-    -# Alert and Notice
-    - if notice
-      :javascript
-        $(document).ready(function(){
-          UIkit.notify({
-            message : '#{notice}',
-            status : 'primary',
-            timeout : 3000,
-            pos : 'top-center'
-          });
-        });
-    - if alert
-      :javascript
-        $(document).ready(function(){
-          UIkit.notify({
-            message : '#{alert}',
-            status : 'danger',
-            timeout : 3000,
-            pos : 'top-center'
-          });
-        });
-  %body.uk-height-1-1
-    .uk-vertical-align.uk-text-center.uk-height-1-1
-      .uk-vertical-align-middle
-        .uk-panel.uk-panel-box.uk-panel-box-primary
-          = form_tag(authen_login_path, {class: "uk-form"}) do
-            .uk-form-row
-              = text_field_tag :username, params[:username], {class: "uk-form-width-medium", placeholder: "Username"}
-            .uk-form-row
-              = password_field_tag :password, params[:password], {class: "uk-form-width-medium", placeholder: "Password"}
-            .uk-form-row
-              = button_tag "เข้าสู่ระบบ", {type: "submit", class: "uk-button uk-button-primary uk-width-1-1"}
+- if notice
+  .ui.grid.centered.vertically.padded
+    .ten.wide.column
+      .ui.success.message
+        %i.close.icon
+        = notice
+- if alert
+  .ui.grid.centered.vertically.padded
+    .ten.wide.column
+      .ui.error.message
+        %i.close.icon
+        = alert
+.ui.centered.grid
+  .three.wide.column
+    = form_tag(authen_login_path, {class: "ui form"}) do
+      .ui.attached.blue.segment
+        .field
+          = text_field_tag :username, params[:username], {placeholder: "Username"}
+        .field
+          = password_field_tag :password, params[:password], {placeholder: "Password"}
+      = button_tag "Login", {type: "submit", class: "ui bottom attached fluid blue button"}

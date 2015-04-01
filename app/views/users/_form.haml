@@ -1,37 +1,33 @@
-= form_for(@user, html: {class: "uk-form uk-form-horizontal"}) do |f|
-  - if @user.errors.any?
-    .uk-width-medium-2-5.uk-alert.uk-alert-danger{"data-uk-alert" => true}
-      %a.uk-alert-close.uk-close
-      %h3
+.one.wide.column
+.six.wide.column
+  = form_for(@user, html: {class: "ui #{"error" if @user.errors.any?} form segment"}) do |f|
+    .field{class: "#{"error" if @user.errors[:name].any?}"}
+      = f.label :name
+      = f.text_field :name
+    .field{class: "#{"error" if @user.errors[:username].any?}"}
+      = f.label :username
+      = f.text_field :username, {disabled: @user.persisted?}
+    .field{class: "#{"error" if @user.errors[:password].any?}"}
+      = f.label :password
+      = f.password_field :password
+    .field{class: "#{"error" if @user.errors[:password_confirmation].any?}"}
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    .field{class: "#{"error" if @user.errors[:privilege].any?}"}
+      = f.label :privilege
+      = f.select :privilege, User::PRIVILEGES, {prompt: "Select privilege"}, {class: "ui dropdown"}
+    .ui.divider
+    .field
+      .ui.right.floated.buttons
+        = link_to "Cancel", users_path, {class: "ui button"}
+        .or
+        = f.submit nil, {class: "positive ui button"}
+- if @user.errors.any?
+  .six.wide.column
+    .ui.error.message
+      .header
         = pluralize(@user.errors.count, "error")
         prohibited this user from being saved:
-      %ul
+      %ul.list
         - @user.errors.full_messages.each do |message|
           %li= message
-  .uk-form-row
-    - error = @user.errors[:name].any? ? "uk-form-danger" : ""
-    = f.label :name, {class: "uk-form-label"}
-    .uk-form-controls
-      = f.text_field :name, {class: "uk-form-width-medium #{error}"}
-  .uk-form-row
-    - error = @user.errors[:username].any? ? "uk-form-danger" : ""
-    = f.label :username, {class: "uk-form-label"}
-    .uk-form-controls
-      = f.text_field :username, {class: "uk-form-width-medium #{error}", disabled: @user.persisted?}
-  .uk-form-row
-    - error = @user.errors[:password].any? ? "uk-form-danger" : ""
-    = f.label :password, {class: "uk-form-label"}
-    .uk-form-controls
-      = f.password_field :password, {class: "uk-form-width-medium #{error}"}
-  .uk-form-row
-    - error = @user.errors[:password_confirmation].any? ? "uk-form-danger" : ""
-    = f.label :password_confirmation, {class: "uk-form-label"}
-    .uk-form-controls
-      = f.password_field :password_confirmation, {class: "uk-form-width-medium #{error}"}
-  .uk-form-row
-    = f.label :privilege, {class: "uk-form-label"}
-    .uk-form-controls
-      = f.select :privilege, User::PRIVILEGES, prompt: "Select privilege"
-  .uk-form-row
-    .uk-form-controls
-      = f.submit nil, {class: "uk-button"}

@@ -1,7 +1,8 @@
 class AuthenController < ApplicationController
-  layout false
+  layout "plain"
   skip_before_action :authorize, only: [:new, :create]
-  
+  before_action :redirect_if_authorized, only: [:new, :create]
+
   def new
   end
 
@@ -19,7 +20,7 @@ class AuthenController < ApplicationController
       elsif user.privilege == "User"
         session[:root] = nil
         session[:admin] = nil
-      end        
+      end
       redirect_to index_path, notice: "ยินดีต้อนรับ #{user.name}"
     else
       redirect_to authen_login_path, alert: "Username หรือ Password ไม่ถูกต้อง"
@@ -33,4 +34,9 @@ class AuthenController < ApplicationController
     session[:admin] = nil
     redirect_to authen_login_path, notice: "ท่านออกจากระบบเรียบร้อยแล้ว"
   end
+
+  private
+    def redirect_if_authorized
+      redirect_to index_path if authorized?
+    end
 end

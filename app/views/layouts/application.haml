@@ -2,46 +2,36 @@
 %html
   %head
     %title Roi Et City Hotel
-    = stylesheet_link_tag "application", media: "all"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag "application", media: "all", 'data-turbolinks-track' => true
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
-    -# Alert and Notice
-    - if notice
-      :javascript
-        $(document).ready(function(){
-          UIkit.notify({
-            message : '#{notice}',
-            status : 'primary',
-            timeout : 3000,
-            pos : 'top-center'
-          });
-        });
-    - if alert
-      :javascript
-        $(document).ready(function(){
-          UIkit.notify({
-            message : '#{alert}',
-            status : 'danger',
-            timeout : 3000,
-            pos : 'top-center'
-          });
-        });
   %body
-    %nav.uk-navbar
-      %ul.uk-navbar-nav
-        %li= link_to "Main", index_path
-        %li.uk-parent{"data-uk-dropdown" => true}
-          = link_to "Users", "#"
-          .uk-dropdown.uk-dropdown-navbar
-            %ul.uk-nav.uk-nav-navbar
-              %li= link_to "Users", users_path
-              %li= link_to "New User", new_user_path
-      .uk-navbar-flip
-        %ul.uk-navbar-nav
-          %li.uk-parent{"data-uk-dropdown" => true}
-            = link_to "#{session[:user_name]}", "#"
-            .uk-dropdown.uk-dropdown.navbar
-              %ul.uk-nav.uk-nav-navbar
-                %li= link_to "ออกจากระบบ", authen_logout_path, method: :delete, data: {confirm: "ยืนยันการออกจากระบบ"}
-    .uk-container.uk-margin-top
-      = yield
+    .ui.large.sticky.menu
+      = link_to content_tag(:i, "", class: "home icon") + "Main", index_path, {class: "item"}
+      .ui.pointing.dropdown.link.item
+        %i.users.icon
+        Users
+        %i.dropdown.icon
+        .menu
+          = link_to content_tag(:i, "", class: "list icon") + "Users", users_path, {class: "item"}
+          = link_to content_tag(:i, "", class: "add circle icon") + "New User", new_user_path, {class: "item"}
+      .right.menu
+        .ui.pointing.dropdown.link.item
+          %i.user.icon
+          = session[:user_name]
+          %i.dropdown.icon
+          .menu
+            = link_to content_tag(:i, "", class: "sign out icon") + "ออกจากระบบ", authen_logout_path, method: :delete, data: {confirm: "ยืนยันการออกจากระบบ"}, class: "item"
+    - if notice
+      .ui.grid.centered.vertically.padded
+        .ten.wide.column
+          .ui.success.message
+            %i.close.icon
+            = notice
+    - if alert
+      .ui.grid.centered.vertically.padded
+        .ten.wide.column
+          .ui.error.message
+            %i.close.icon
+            = alert
+    = yield
