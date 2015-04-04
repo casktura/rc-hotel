@@ -1,0 +1,20 @@
+.ui.padded.grid
+  .column
+    %h1 Listing Customers
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th ID Number
+          %th Name
+          %th Phone Number
+          %th E-Mail
+          %th{colspan: "2"}
+      %tbody
+        - @customers.each do |customer|
+          %tr
+            %td= customer.number
+            %td= customer.name
+            %td= customer.telephone
+            %td= customer.email
+            %td= link_to semantic_icon("edit") + "Edit", edit_customer_path(customer)
+            %td= link_to semantic_icon("trash") + "Delete", customer, method: :delete, data: {confirm: "Are you sure to delete \"#{customer.name}\""}

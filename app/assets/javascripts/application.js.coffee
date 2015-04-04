@@ -19,7 +19,7 @@ $(document).on "page:change", ->
 
   #ฟังก์ชันปิด Flash Message
   $(".message .close").on "click", ->
-    $(@).closest(".ui.grid.centered.vertically.padded").slideUp()
+    $(@).closest(".ui.centered.padded.grid").slideUp()
 
   #Dropdown ของ Menu Bar
   $("div.ui.dropdown").dropdown({on: "hover"})
@@ -29,4 +29,3 @@ $(document).on "page:change", ->
 
   #Sticky Menu Bar !!!มีปัญหากับ Flash Message
   #$(".ui.sticky").sticky()
-

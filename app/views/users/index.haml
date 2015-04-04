@@ -19,5 +19,5 @@
             - if show_password
               %td= user.password_digest
             %td= user.privilege
-            %td= link_to content_tag(:i, "", class: "edit icon") + "Edit", edit_user_path(user)
-            %td= link_to content_tag(:i, "", class: "trash icon") + "Delete", user, method: :delete, data: {confirm: "Are you sure to delete \"#{user.name}\""}
+            %td= link_to semantic_icon("edit") + "Edit", edit_user_path(user)
+            %td= link_to semantic_icon("trash") + "Delete", user, method: :delete, data: {confirm: "Are you sure to delete \"#{user.name}\""}

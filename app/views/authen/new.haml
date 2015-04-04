@@ -1,16 +1,16 @@
 - if notice
-  .ui.grid.centered.vertically.padded
+  .ui.centered.padded.grid#top
     .ten.wide.column
       .ui.success.message
         %i.close.icon
         = notice
 - if alert
-  .ui.grid.centered.vertically.padded
+  .ui.centered.padded.grid#top
     .ten.wide.column
       .ui.error.message
         %i.close.icon
         = alert
-.ui.centered.vertically.padded.grid
+.ui.centered.padded.grid#login_pane
   .three.wide.column
     = form_tag(authen_login_path, {class: "ui form"}) do
       .ui.attached.blue.segment

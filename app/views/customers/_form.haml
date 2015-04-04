@@ -1,0 +1,30 @@
+.one.wide.column
+.six.wide.column
+  = form_for(@customer, html: {class: "ui #{"error" if @customer.errors.any?} form segment"}) do |f|
+    .field{class: "#{"error" if @customer.errors[:number].any?}"}
+      = f.label :number
+      = f.text_field :number, {disabled: @customer.persisted?}
+    .field{class: "#{"error" if @customer.errors[:name].any?}"}
+      = f.label :name
+      = f.text_field :name
+    .field{class: "#{"error" if @customer.errors[:telephone].any?}"}
+      = f.label :telephone
+      = f.text_field  :telephone
+    .field{class: "#{"error" if @customer.errors[:email].any?}"}
+      = f.label :email
+      = f.text_field  :email
+    .ui.divider
+    .field
+      .ui.right.floated.buttons
+        = link_to "Cancel", customers_path, {class: "ui button"}
+        .or
+        = f.submit nil, {class: "positive ui button"}
+- if @customer.errors.any?
+  .six.wide.column
+    .ui.error.message
+      .header
+        = pluralize(@customer.errors.count, "error")
+        prohibited this user from being saved:
+      %ul.list
+        - @customer.errors.full_messages.each do |message|
+          %li= message

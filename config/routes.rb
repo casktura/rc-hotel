@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-#  get 'main/index'
+  resources :customers, except: [:show]
 
-  resources :users ,except: [:show]
+  resources :users, except: [:show]
 
   get 'index' => 'main#index'
 

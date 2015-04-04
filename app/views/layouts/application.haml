@@ -6,30 +6,39 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .ui.large.sticky.menu
-      = link_to content_tag(:i, "", class: "home icon") + "Main", index_path, {class: "item"}
+    -##banner
+      %h1 Banner นะจ๊ะ
+    .ui.sticky.menu
+      = link_to semantic_icon("home") + "Main", index_path, {class: "item"}
       .ui.pointing.dropdown.link.item
-        %i.users.icon
+        = semantic_icon("users")
+        Customers
+        %i.dropdown.icon
+        .menu
+          = link_to semantic_icon("list") + "Customers", customers_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "New Customer", new_customer_path, {class: "item"}
+      .ui.pointing.dropdown.link.item
+        = semantic_icon("users")
         Users
         %i.dropdown.icon
         .menu
-          = link_to content_tag(:i, "", class: "list icon") + "Users", users_path, {class: "item"}
-          = link_to content_tag(:i, "", class: "add circle icon") + "New User", new_user_path, {class: "item"}
+          = link_to semantic_icon("list") + "Users", users_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "New User", new_user_path, {class: "item"}
       .right.menu
         .ui.pointing.dropdown.link.item
-          %i.user.icon
+          = semantic_icon("user")
           = session[:user_name]
           %i.dropdown.icon
           .menu
-            = link_to content_tag(:i, "", class: "sign out icon") + "ออกจากระบบ", authen_logout_path, method: :delete, data: {confirm: "ยืนยันการออกจากระบบ"}, class: "item"
+            = link_to semantic_icon("sign out") + "ออกจากระบบ", authen_logout_path, method: :delete, data: {confirm: "ยืนยันการออกจากระบบ"}, class: "item"
     - if notice
-      .ui.grid.centered.vertically.padded
+      .ui.centered.padded.grid#top
         .ten.wide.column
           .ui.success.message
             %i.close.icon
             = notice
     - if alert
-      .ui.grid.centered.vertically.padded
+      .ui.centered.padded.grid#top
         .ten.wide.column
           .ui.error.message
             %i.close.icon
