@@ -1,15 +1,15 @@
-- show_password = false
+- show_password = true
 .ui.padded.grid
   .column
     %h1 Listing Users
     %table.ui.striped.blue.table
       %thead
         %tr
-          %th ชื่อ - สกุล
-          %th ชื่อผู้ใช้ (สำหรับการเข้าสู่ระบบ)
+          %th= User.human_attribute_name "name"
+          %th= User.human_attribute_name "username"
           - if show_password
-            %th รหัสผ่าน
-          %th สิทธิ์การเข้าใช้
+            %th= User.human_attribute_name "password_digest"
+          %th= User.human_attribute_name "privilege"
           %th{colspan: "2"}
       %tbody
         - @users.each do |user|

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  #scope "(:locale)", locale: /en|th/ do
   resources :customers, except: [:show]
 
   resources :users, except: [:show]
@@ -9,11 +11,14 @@ Rails.application.routes.draw do
   post 'authen/login' => 'authen#create'
   delete 'authen/logout' => 'authen#destroy'
 
+  root 'authen#new'
+  #end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'authen#new'
+  #   root 'authen#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

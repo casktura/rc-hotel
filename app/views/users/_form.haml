@@ -15,7 +15,7 @@
       = f.password_field :password_confirmation
     .field{class: "#{"error" if @user.errors[:privilege].any?}"}
       = f.label :privilege
-      = f.select :privilege, User::PRIVILEGES, {prompt: "Select privilege"}, {class: "ui dropdown"}
+      = f.select :privilege, User::PRIVILEGES, {prompt: true}, {class: "ui dropdown"}
     .ui.divider
     .field
       .ui.right.floated.buttons

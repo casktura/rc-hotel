@@ -21,9 +21,9 @@ class AuthenController < ApplicationController
         session[:root] = nil
         session[:admin] = nil
       end
-      redirect_to index_path, notice: "ยินดีต้อนรับ #{user.name}"
+      redirect_to index_path, notice: "Welcome #{user.name}"
     else
-      redirect_to authen_login_path, alert: "Username หรือ Password ไม่ถูกต้อง"
+      redirect_to authen_login_path, alert: "Username or Password is incorrect."
     end
   end
 
@@ -32,7 +32,7 @@ class AuthenController < ApplicationController
     session[:user_name] = nil
     session[:root] = nil
     session[:admin] = nil
-    redirect_to authen_login_path, notice: "ท่านออกจากระบบเรียบร้อยแล้ว"
+    redirect_to authen_login_path, notice: "You have successfully logged out."
   end
 
   private

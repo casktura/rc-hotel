@@ -14,12 +14,9 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require semantic-ui
+#= require notify.min
 #= require_tree .
 $(document).on "page:change", ->
-
-  #ฟังก์ชันปิด Flash Message
-  $(".message .close").on "click", ->
-    $(@).closest(".ui.centered.padded.grid").slideUp()
 
   #Dropdown ของ Menu Bar
   $("div.ui.dropdown").dropdown({on: "hover"})
@@ -27,5 +24,5 @@ $(document).on "page:change", ->
   #Dropdown ของ Select Input
   $("select.ui.dropdown").dropdown()
 
-  #Sticky Menu Bar !!!มีปัญหากับ Flash Message
-  #$(".ui.sticky").sticky()
+  #Sticky Menu Bar
+  $(".ui.sticky").sticky()

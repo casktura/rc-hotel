@@ -4,10 +4,10 @@
     %table.ui.striped.blue.table
       %thead
         %tr
-          %th ID Number
-          %th Name
-          %th Phone Number
-          %th E-Mail
+          %th= Customer.human_attribute_name "number"
+          %th= Customer.human_attribute_name "name"
+          %th= Customer.human_attribute_name "telephone"
+          %th= Customer.human_attribute_name "email"
           %th{colspan: "2"}
       %tbody
         - @customers.each do |customer|

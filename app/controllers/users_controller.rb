@@ -54,9 +54,9 @@ class UsersController < ApplicationController
   def destroy
     respond_to do |format|
       if @user == User.find_by(id: session[:user_id])
-        format.html { redirect_to users_url, alert: "ท่านไม่สามารถลบชื่อผู้ใช้นี้ได้" }
+        format.html { redirect_to users_url, alert: "You cannot delete your own account." }
       elsif @user.destroy
-        format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+        format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
       end
     end
   end

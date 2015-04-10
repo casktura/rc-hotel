@@ -6,21 +6,34 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    -##banner
-      %h1 Banner นะจ๊ะ
     .ui.sticky.menu
       = link_to semantic_icon("home") + "Main", index_path, {class: "item"}
       .ui.pointing.dropdown.link.item
         = semantic_icon("users")
         Customers
-        %i.dropdown.icon
+        = semantic_icon("dropdown")
         .menu
           = link_to semantic_icon("list") + "Customers", customers_path, {class: "item"}
           = link_to semantic_icon("add circle") + "New Customer", new_customer_path, {class: "item"}
       .ui.pointing.dropdown.link.item
+        Reserve
+        = semantic_icon("dropdown")
+        .menu
+          %a.item Dummy
+      .ui.pointing.dropdown.link.item
+        Rooms
+        = semantic_icon("dropdown")
+        .menu
+          %a.item Dummy
+          .item
+            = semantic_icon("dropdown")
+            %span.text Dummy
+            .menu
+              %a.item Dummy
+      .ui.pointing.dropdown.link.item
         = semantic_icon("users")
         Users
-        %i.dropdown.icon
+        = semantic_icon("dropdown")
         .menu
           = link_to semantic_icon("list") + "Users", users_path, {class: "item"}
           = link_to semantic_icon("add circle") + "New User", new_user_path, {class: "item"}
@@ -28,19 +41,8 @@
         .ui.pointing.dropdown.link.item
           = semantic_icon("user")
           = session[:user_name]
-          %i.dropdown.icon
+          = semantic_icon("dropdown")
           .menu
-            = link_to semantic_icon("sign out") + "ออกจากระบบ", authen_logout_path, method: :delete, data: {confirm: "ยืนยันการออกจากระบบ"}, class: "item"
-    - if notice
-      .ui.centered.padded.grid#top
-        .ten.wide.column
-          .ui.success.message
-            %i.close.icon
-            = notice
-    - if alert
-      .ui.centered.padded.grid#top
-        .ten.wide.column
-          .ui.error.message
-            %i.close.icon
-            = alert
+            = link_to semantic_icon("sign out") + "Log Out", authen_logout_path, method: :delete, data: {confirm: "Are you sure to log out?"}, class: "item"
     = yield
+    = render "layouts/flash_display"

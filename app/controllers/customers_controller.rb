@@ -52,7 +52,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_path, notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to customers_path, notice: 'Customer was successfully deleted.' }
     end
   end
 
