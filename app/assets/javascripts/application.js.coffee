@@ -14,7 +14,7 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require semantic-ui
-#= require notify.min
+#= require miniNotification
 #= require_tree .
 $(document).on "page:change", ->
 
@@ -26,3 +26,6 @@ $(document).on "page:change", ->
 
   #Sticky Menu Bar
   $(".ui.sticky").sticky()
+
+  #Notification
+  $("#notification").miniNotification({position: "bottom", time: 10000})

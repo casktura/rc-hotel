@@ -1,12 +1,7 @@
-- if notice
-  %script{type: "text/javascript", :"data-turbolinks-eval" => "false"}
-    :plain
-      $(document).on("page:change", function(){
-        $.notify("#{notice}", {className: "success", globalPosition: "top center"});
-      });
-- if alert
-  %script{type: "text/javascript", :"data-turbolinks-eval" => "false"}
-    :plain
-      $(document).on("page:change", function(){
-        $.notify("#{alert}", {className: "error", globalPosition: "top center"});
-      });
+#notification
+  - if notice
+    .ui.success.message
+      .header= notice
+  - if alert
+    .ui.error.message
+      .header= alert

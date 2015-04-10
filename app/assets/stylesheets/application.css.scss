@@ -14,3 +14,12 @@
  *= require_self
  */
 @import "semantic-ui";
+
+#notification {
+    display: none;
+    position: fixed;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    z-index:9999;
+}
