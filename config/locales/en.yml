@@ -30,6 +30,22 @@ en:
       customer:
         one: "Customer"
         other: "Customers"
+      room_type:
+        one: "Room Type"
+        other: "Room Types"
+      room_status:
+        one: "Room Status"
+        other: "Room Statuses"
+      room:
+        one: "Room"
+        other: "Rooms"
+      reserve_status:
+        one: "Reserve Status"
+        other: "Reserve Statuses"
+      reserf:
+        one: "Reserve"
+        other: "Reserves"
+
     attributes:
       user:
         name: "Name"
@@ -43,3 +59,40 @@ en:
         name: "Name"
         telephone: "Phone Number"
         email: "E-Mail"
+      room_type:
+        name: "Type"
+        cost: "Cost Per Night"
+      room_status:
+        name: "Status"
+      room:
+        number: "Room Number"
+        room_type: "Type"
+        room_type_id: "Type"
+        room_status: "Status"
+        room_status_id: "Status"
+      reserve_status:
+        name: "Status"
+      reserf:
+        id: "Reserve ID"
+        customer: "Customer"
+        customer_id: "Customer"
+        guest_amount: "Guest Amount"
+        night_amount: "Night Amount"
+        room_amount: "Room Amount"
+        reserve_status: "Status"
+        reserve_status_id: "Status"
+        booking_date: "Booking Date"
+        check_in_date: "Check In Date"
+        check_in_time: "Check In Time"
+        check_out_date: "Check In Date"
+        check_out_time: "Check Out Time"
+        user: "Created By"
+        user_id: "Created By"
+      reservation:
+        reserf: "Reserve"
+        reserf_id: "Reserve"
+        room: "Room"
+        room_id: "Room"
+        optional_bed: "Optional Bed Amount"
+        optional_bed_cost: "Cost/Optional Bed"
+        total_cost: "Total Cost"

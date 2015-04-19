@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reserf_id: 
+  room_id: 
+  optional_bed: 1
+  optional_bed_cost: 9.99
+  total_cost: 9.99
+
+two:
+  reserf_id: 
+  room_id: 
+  optional_bed: 1
+  optional_bed_cost: 9.99
+  total_cost: 9.99

@@ -1,0 +1,28 @@
+.one.wide.column
+.six.wide.column
+  = form_for(@reservation, html: {class: "ui #{"error" if @reservation.errors.any?} form segment"}) do |f|
+    = f.hidden_field :reserf_id
+    .field{class: "#{"error" if @reservation.errors[:room].any?}"}
+      = f.label :room_id
+      = f.collection_select :room_id, Room.all, :id, :number, {prompt: true}, {class: "ui search dropdown"}
+    .field{class: "#{"error" if @reservation.errors[:optional_bed].any?}"}
+      = f.label :optional_bed
+      = f.text_field :optional_bed
+    .field{class: "#{"error" if @reservation.errors[:optional_bed_cost].any?}"}
+      = f.label :optional_bed_cost
+      = f.text_field :optional_bed_cost
+    .ui.divider
+    .field
+      .ui.right.floated.buttons
+        = link_to "Cancel", @reserf, {class: "ui button"}
+        .or
+        = f.submit nil, {class: "positive ui button"}
+- if @reservation.errors.any?
+  .six.wide.column
+    .ui.error.message
+      .header
+        = pluralize(@reservation.errors.count, "error")
+        prohibited this reservation from being saved:
+      %ul.list
+        - @reservation.errors.full_messages.each do |message|
+          %li= message

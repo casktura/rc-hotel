@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :reservations, except: [:index, :show]
+
+  resources :reserves
+
+  resources :reserve_statuses, except: [:show]
+
+  resources :rooms, except: [:show]
+
+  resources :room_statuses, except: [:show]
+
+  resources :room_types, except: [:show]
+
   #scope "(:locale)", locale: /en|th/ do
   resources :customers, except: [:show]
 

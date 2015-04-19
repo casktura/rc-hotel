@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 
+  guest_amount: 1
+  night_amount: 1
+  room_amount: 1
+  reserve_status_id: 
+  booking_date: 2015-04-15
+  check_in_date: 2015-04-15
+  check_in_time: 2015-04-15 15:55:33
+  check_out_date: 2015-04-15
+  check_out_time: 2015-04-15 15:55:33
+  user_id: 
+
+two:
+  customer_id: 
+  guest_amount: 1
+  night_amount: 1
+  room_amount: 1
+  reserve_status_id: 
+  booking_date: 2015-04-15
+  check_in_date: 2015-04-15
+  check_in_time: 2015-04-15 15:55:33
+  check_out_date: 2015-04-15
+  check_out_time: 2015-04-15 15:55:33
+  user_id: 

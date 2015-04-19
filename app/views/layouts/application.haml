@@ -16,20 +16,37 @@
           = link_to semantic_icon("list") + "Customers", customers_path, {class: "item"}
           = link_to semantic_icon("add circle") + "New Customer", new_customer_path, {class: "item"}
       .ui.pointing.dropdown.link.item
+        = semantic_icon("book")
         Reserve
         = semantic_icon("dropdown")
         .menu
-          %a.item Dummy
+          .item
+            = semantic_icon("dropdown")
+            %span.text Statuses
+            .menu
+              = link_to link_to semantic_icon("list") + "Statuses", reserve_statuses_path, {class: "item"}
+              = link_to semantic_icon("add circle") + "New Status", new_reserve_status_path, {class: "item"}
+          = link_to semantic_icon("list") + "Reserve", reserves_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "New Reserve", new_reserf_path, {class: "item"}
       .ui.pointing.dropdown.link.item
+        = semantic_icon("building")
         Rooms
         = semantic_icon("dropdown")
         .menu
-          %a.item Dummy
           .item
             = semantic_icon("dropdown")
-            %span.text Dummy
+            %span.text Types
             .menu
-              %a.item Dummy
+              = link_to link_to semantic_icon("list") + "Types", room_types_path, {class: "item"}
+              = link_to semantic_icon("add circle") + "New Type", new_room_type_path, {class: "item"}
+          .item
+            = semantic_icon("dropdown")
+            %span.text Statuses
+            .menu
+              = link_to link_to semantic_icon("list") + "Statuses", room_statuses_path, {class: "item"}
+              = link_to semantic_icon("add circle") + "New Status", new_room_status_path, {class: "item"}
+          = link_to link_to semantic_icon("list") + "Rooms", rooms_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "New Room", new_room_path, {class: "item"}
       .ui.pointing.dropdown.link.item
         = semantic_icon("users")
         Users

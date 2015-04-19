@@ -1,0 +1,14 @@
+.ui.padded.grid
+  .column
+    %h1 Listing Statuses
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th= RoomStatus.human_attribute_name "name"
+          %th{colspan: "2"}
+      %tbody
+        - @room_statuses.each do |room_status|
+          %tr
+            %td= room_status.name
+            %td= link_to semantic_icon("edit") + "Edit", edit_room_status_path(room_status)
+            %td= link_to semantic_icon("trash") + "Delete", room_status, method: :delete, data: {confirm: "Are you sure to delete \"#{room_status.name}\""}

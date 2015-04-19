@@ -1,0 +1,14 @@
+.ui.padded.grid
+  .column
+    %h1 Listing Statuses
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th= ReserveStatus.human_attribute_name "name"
+          %th{colspan: "2"}
+      %tbody
+        - @reserve_statuses.each do |reserve_status|
+          %tr
+            %td= reserve_status.name
+            %td= link_to semantic_icon("edit") + "Edit", edit_reserve_status_path(reserve_status)
+            %td= link_to semantic_icon("trash") + "Delete", reserve_status, method: :delete, data: {confirm: "Are you sure to delete \"#{reserve_status.name}\""}

@@ -1,0 +1,27 @@
+.one.wide.column
+.six.wide.column
+  = form_for(@room, html: {class: "ui #{"error" if @room.errors.any?} form segment"}) do |f|
+    .field{class: "#{"error" if @room.errors[:number].any?}"}
+      = f.label :number
+      = f.text_field :number, {disabled: @room.persisted?}
+    .field{class: "#{"error" if @room.errors[:room_type].any?}"}
+      = f.label :room_type_id
+      = f.collection_select :room_type_id, RoomType.all, :id, :name, {prompt: true}, {class: "ui dropdown"}
+    .field{class: "#{"error" if @room.errors[:room_status].any?}"}
+      = f.label :room_status_id
+      = f.collection_select :room_status_id, RoomStatus.all, :id, :name, {prompt: true}, {class: "ui dropdown"}
+    .ui.divider
+    .field
+      .ui.right.floated.buttons
+        = link_to "Cancel", rooms_path, {class: "ui button"}
+        .or
+        = f.submit nil, {class: "positive ui button"}
+- if @room.errors.any?
+  .six.wide.column
+    .ui.error.message
+      .header
+        = pluralize(@room.errors.count, "error")
+        prohibited this room from being saved:
+      %ul.list
+        - @room.errors.full_messages.each do |message|
+          %li= message

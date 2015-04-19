@@ -1,0 +1,21 @@
+.one.wide.column
+.six.wide.column
+  = form_for(@reserve_status, html: {class: "ui #{"error" if @reserve_status.errors.any?} form segment"}) do |f|
+    .field{class: "#{"error" if @reserve_status.errors[:name].any?}"}
+      = f.label :name
+      = f.text_field :name
+    .ui.divider
+    .field
+      .ui.right.floated.buttons
+        = link_to "Cancel", reserve_statuses_path, {class: "ui button"}
+        .or
+        = f.submit nil, {class: "positive ui button"}
+- if @reserve_status.errors.any?
+  .six.wide.column
+    .ui.error.message
+      .header
+        = pluralize(@reserve_status.errors.count, "error")
+        prohibited this status from being saved:
+      %ul.list
+        - @reserve_status.errors.full_messages.each do |message|
+          %li= message

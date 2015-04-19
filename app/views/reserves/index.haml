@@ -1,0 +1,25 @@
+.ui.padded.grid
+  .column
+    %h1 Listing Reserves
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th= Reserf.human_attribute_name "id"
+          %th= Reserf.human_attribute_name "customer"
+          %th= Reserf.human_attribute_name "night_amount"
+          %th= Reserf.human_attribute_name "room_amount"
+          %th= Reserf.human_attribute_name "reserve_status"
+          %th= Reserf.human_attribute_name "user"
+          %th{colspan: "3"}
+      %tbody
+        - @reserves.each do |reserf|
+          %tr
+            %td= reserf.id
+            %td= reserf.customer.name
+            %td= reserf.night_amount
+            %td= reserf.room_amount
+            %td= reserf.reserve_status.name
+            %td= reserf.user.name
+            %td= link_to semantic_icon("zoom") + "Detail", reserf
+            %td= link_to semantic_icon("edit") + "Edit", edit_reserf_path(reserf)
+            %td= link_to semantic_icon("trash") + "Delete", reserf, method: :delete, data: {confirm: "Are you sure to delete \"##{reserf.id}\""}

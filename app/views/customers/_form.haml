@@ -24,7 +24,7 @@
     .ui.error.message
       .header
         = pluralize(@customer.errors.count, "error")
-        prohibited this user from being saved:
+        prohibited this customer from being saved:
       %ul.list
         - @customer.errors.full_messages.each do |message|
           %li= message

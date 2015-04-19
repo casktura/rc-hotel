@@ -1,0 +1,20 @@
+.ui.padded.grid
+  .column
+    %h1 Listing Rooms
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th= Room.human_attribute_name "number"
+          %th= RoomType.human_attribute_name "name"
+          %th= RoomType.human_attribute_name "cost"
+          %th= RoomStatus.human_attribute_name "name"
+          %th{colspan: "2"}
+      %tbody
+        - @rooms.each do |room|
+          %tr
+            %td= room.number
+            %td= room.room_type.name
+            %td= room.room_type.cost
+            %td= room.room_status.name
+            %td= link_to semantic_icon("edit") + "Edit", edit_room_path(room)
+            %td= link_to semantic_icon("trash") + "Delete", room, method: :delete, data: {confirm: "Are you sure to delete \"#{room.number}\""}

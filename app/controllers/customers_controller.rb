@@ -50,9 +50,12 @@ class CustomersController < ApplicationController
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
-    @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_path, notice: 'Customer was successfully deleted.' }
+      if @customer.destroy
+        format.html { redirect_to customers_path, notice: 'Customer was successfully deleted.' }
+      else
+        format.html { redirect_to customers_path, alert: @customer.errors[:base][0] + "." }
+      end
     end
   end
 

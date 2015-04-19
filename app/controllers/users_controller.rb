@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :only_admin
-  before_action :only_root, only: [:create, :update, :destroy]
+  before_action :only_root
 
   # GET /users
   # GET /users.json
@@ -54,9 +53,11 @@ class UsersController < ApplicationController
   def destroy
     respond_to do |format|
       if @user == User.find_by(id: session[:user_id])
-        format.html { redirect_to users_url, alert: "You cannot delete your own account." }
+        format.html { redirect_to users_path, alert: "You cannot delete your own account." }
       elsif @user.destroy
-        format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
+        format.html { redirect_to users_path, notice: 'User was successfully deleted.' }
+      else
+        format.html { redirect_to users_path, alert: @user.errors[:base][0] + "." }
       end
     end
   end

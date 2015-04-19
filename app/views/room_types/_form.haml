@@ -1,0 +1,24 @@
+.one.wide.column
+.six.wide.column
+  = form_for(@room_type, html: {class: "ui #{"error" if @room_type.errors.any?} form segment"}) do |f|
+    .field{class: "#{"error" if @room_type.errors[:name].any?}"}
+      = f.label :name
+      = f.text_field :name
+    .field{class: "#{"error" if @room_type.errors[:cost].any?}"}
+      = f.label :cost
+      = f.text_field :cost
+    .ui.divider
+    .field
+      .ui.right.floated.buttons
+        = link_to "Cancel", room_types_path, {class: "ui button"}
+        .or
+        = f.submit nil, {class: "positive ui button"}
+- if @room_type.errors.any?
+  .six.wide.column
+    .ui.error.message
+      .header
+        = pluralize(@room_type.errors.count, "error")
+        prohibited this type from being saved:
+      %ul.list
+        - @room_type.errors.full_messages.each do |message|
+          %li= message

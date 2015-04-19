@@ -1,0 +1,36 @@
+.ui.padded.grid
+  .column
+    %h1
+      Reserve ##{@reserf.id}
+    .ui.segment
+      %table
+        %tbody
+          %tr
+            %td
+              %b= Reserf.human_attribute_name("customer") + ":"
+            %td= @reserf.customer.name
+            %td
+              %b= Reserf.human_attribute_name("user") + ":"
+            %td= @reserf.user.name
+          %tr
+            %td ยังไม่รู้จะโชว์อะไร
+    %h3
+      Listing Booked Rooms
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th= Room.human_attribute_name "number"
+          %th= Reservation.human_attribute_name "optional_bed"
+          %th= Reservation.human_attribute_name "optional_bed_cost"
+          %th= Reservation.human_attribute_name "total_cost"
+          %th{colspan: "2"}
+      %tbody
+        - @reserf.reservations.each do |reservation|
+          %tr
+            %td= reservation.room.number
+            %td= reservation.optional_bed
+            %td= reservation.optional_bed_cost
+            %td= reservation.total_cost
+            %td= link_to semantic_icon("edit") + "Edit", edit_reservation_path(reservation)
+            %td= link_to semantic_icon("trash") + "Delete", reservation, method: :delete, data: {confirm: "Are you sure to delete \"Room #{reservation.room.number}\""}
+    = link_to content_tag(:div, semantic_icon("add") + "Select Room" , class: "ui labeled icon primary button"), new_reservation_path(reserf_id: @reserf.id)

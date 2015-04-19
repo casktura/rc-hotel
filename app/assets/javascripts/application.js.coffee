@@ -15,6 +15,7 @@
 #= require turbolinks
 #= require semantic-ui
 #= require miniNotification
+#= require jquery.datetimepicker
 #= require_tree .
 $(document).on "page:change", ->
 
@@ -29,3 +30,51 @@ $(document).on "page:change", ->
 
   #Notification
   $("#notification").miniNotification({position: "bottom", time: 10000})
+
+  #Datepicker
+  $("#reserf_booking_date").datetimepicker({
+    timepicker: false,
+    format: "Y-m-d",
+    mask: true,
+    lang: "th",
+    closeOnDateSelect: true,
+    value: $("#reserf_booking_date").val() if $("#reserf_booking_date").val(),
+    validateOnBlur: false
+  })
+
+  $("#reserf_check_in_date").datetimepicker({
+    timepicker: false,
+    format: "Y-m-d",
+    mask: true,
+    lang: "th",
+    closeOnDateSelect: true,
+    value: $("#reserf_check_in_date").val() if $("#reserf_check_in_date").val(),
+    validateOnBlur: false
+  })
+
+  $("#reserf_check_out_date").datetimepicker({
+    timepicker: false,
+    format: "Y-m-d",
+    mask: true,
+    lang: "th",
+    closeOnDateSelect: true,
+    value: $("#reserf_check_out_date").val() if $("#reserf_check_out_date").val(),
+    validateOnBlur: false
+  })
+
+  #Timepicker
+  $("#reserf_check_in_time").datetimepicker({
+    datepicker: false,
+    mask: true,
+    format: "H:i:s",
+    value: $("#reserf_check_in_time").val() if $("#reserf_check_in_time").val(),
+    validateOnBlur: false
+  })
+
+  $("#reserf_check_out_time").datetimepicker({
+    datepicker: false,
+    mask: true,
+    format: "H:i:s",
+    value: $("#reserf_check_out_time").val() if $("#reserf_check_out_time").val(),
+    validateOnBlur: false
+  })
