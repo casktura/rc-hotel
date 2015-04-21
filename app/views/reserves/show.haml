@@ -1,25 +1,53 @@
 .ui.padded.grid
   .column
     %h1
-      Reserve ##{@reserf.id}
+      Booking ##{@reserf.id}
     .ui.segment
-      %table
-        %tbody
-          %tr
-            %td
-              %b= Reserf.human_attribute_name("customer") + ":"
-            %td= @reserf.customer.name
-            %td
-              %b= Reserf.human_attribute_name("user") + ":"
-            %td= @reserf.user.name
-          %tr
-            %td ยังไม่รู้จะโชว์อะไร
+      .ui.grid
+        .three.column.row
+          .column
+            %h4
+              = Reserf.human_attribute_name("customer") + ":"
+              = @reserf.customer.name
+            %h4
+              = Reserf.human_attribute_name("guest_amount") + ":"
+              = @reserf.guest_amount
+            %h4
+              = Reserf.human_attribute_name("night_amount") + ":"
+              = @reserf.night_amount
+            %h4
+              = Reserf.human_attribute_name("room_amount") + ":"
+              = @reserf.room_amount
+            %h4
+              = Reserf.human_attribute_name("user") + ":"
+              = @reserf.user.name
+          .column
+            %h4
+              = Reserf.human_attribute_name("booking_date") + ":"
+              = @reserf.booking_date or "-"
+            %h4
+              = Reserf.human_attribute_name("check_in_date") + ":"
+              = @reserf.check_in_date or "-"
+            %h4
+              = Reserf.human_attribute_name("check_in_time") + ":"
+              = @reserf.check_in_time or "-"
+            %h4
+              = Reserf.human_attribute_name("check_out_date") + ":"
+              = @reserf.check_out_date or "-"
+            %h4
+              = Reserf.human_attribute_name("check_out_time") + ":"
+              = @reserf.check_out_time or "-"
+          .column
+            %h4
+              = Reserf.human_attribute_name("reserve_status") + ":"
+              = @reserf.reserve_status.name or "-"
     %h3
-      Listing Booked Rooms
+      Booked Rooms
     %table.ui.striped.blue.table
       %thead
         %tr
           %th= Room.human_attribute_name "number"
+          %th= Room.human_attribute_name "room_type"
           %th= Reservation.human_attribute_name "optional_bed"
           %th= Reservation.human_attribute_name "optional_bed_cost"
           %th= Reservation.human_attribute_name "total_cost"
@@ -28,9 +56,29 @@
         - @reserf.reservations.each do |reservation|
           %tr
             %td= reservation.room.number
+            %td= reservation.room.room_type.name
             %td= reservation.optional_bed
             %td= reservation.optional_bed_cost
             %td= reservation.total_cost
             %td= link_to semantic_icon("edit") + "Edit", edit_reservation_path(reservation)
             %td= link_to semantic_icon("trash") + "Delete", reservation, method: :delete, data: {confirm: "Are you sure to delete \"Room #{reservation.room.number}\""}
+        %tr
+          %td
+          %td
+          %td
+          %td
+            %b Total Cost
+          %td
+            %b= @reserf.total_cost
+          %td{colspan: "2"}
+        %tr
+          %td
+          %td
+          %td
+          %td
+            %b Total Cost * Night Amount
+          %td
+            %b
+              %u= @reserf.total_cost * @reserf.night_amount
+          %td{colspan: "2"}
     = link_to content_tag(:div, semantic_icon("add") + "Select Room" , class: "ui labeled icon primary button"), new_reservation_path(reserf_id: @reserf.id)

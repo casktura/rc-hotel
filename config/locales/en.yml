@@ -61,7 +61,7 @@ en:
         email: "E-Mail"
       room_type:
         name: "Type"
-        cost: "Cost Per Night"
+        cost: "Cost/Night"
       room_status:
         name: "Status"
       room:
@@ -73,7 +73,7 @@ en:
       reserve_status:
         name: "Status"
       reserf:
-        id: "Reserve ID"
+        id: "ID"
         customer: "Customer"
         customer_id: "Customer"
         guest_amount: "Guest Amount"
@@ -84,7 +84,7 @@ en:
         booking_date: "Booking Date"
         check_in_date: "Check In Date"
         check_in_time: "Check In Time"
-        check_out_date: "Check In Date"
+        check_out_date: "Check Out Date"
         check_out_time: "Check Out Time"
         user: "Created By"
         user_id: "Created By"
@@ -95,4 +95,4 @@ en:
         room_id: "Room"
         optional_bed: "Optional Bed Amount"
         optional_bed_cost: "Cost/Optional Bed"
-        total_cost: "Total Cost"
+        total_cost: "Cost/Night"

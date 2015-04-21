@@ -21,6 +21,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit
+    @reserf = @reservation.reserf
   end
 
   # POST /reservations
@@ -32,6 +33,7 @@ class ReservationsController < ApplicationController
       if @reservation.save
         format.html { redirect_to @reservation.reserf, notice: 'Reservation was successfully created.' }
       else
+        @reserf = @reservation.reserf
         format.html { render :new }
       end
     end
@@ -44,6 +46,7 @@ class ReservationsController < ApplicationController
       if @reservation.update(reservation_params)
         format.html { redirect_to @reservation.reserf, notice: 'Reservation was successfully updated.' }
       else
+        @reserf = @reservation.reserf
         format.html { render :edit }
       end
     end

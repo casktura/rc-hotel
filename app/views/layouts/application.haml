@@ -7,27 +7,27 @@
     = csrf_meta_tags
   %body
     .ui.sticky.menu
-      = link_to semantic_icon("home") + "Main", index_path, {class: "item"}
+      = link_to semantic_icon("home") + "Start Here", index_path, {class: "item"}
       .ui.pointing.dropdown.link.item
         = semantic_icon("users")
         Customers
         = semantic_icon("dropdown")
         .menu
-          = link_to semantic_icon("list") + "Customers", customers_path, {class: "item"}
-          = link_to semantic_icon("add circle") + "New Customer", new_customer_path, {class: "item"}
+          = link_to semantic_icon("list") + "Listing Customers", customers_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "Add New Customer", new_customer_path, {class: "item"}
       .ui.pointing.dropdown.link.item
         = semantic_icon("book")
-        Reserve
+        Booking/Check In
         = semantic_icon("dropdown")
         .menu
           .item
             = semantic_icon("dropdown")
-            %span.text Statuses
+            %span.text Status
             .menu
-              = link_to link_to semantic_icon("list") + "Statuses", reserve_statuses_path, {class: "item"}
-              = link_to semantic_icon("add circle") + "New Status", new_reserve_status_path, {class: "item"}
-          = link_to semantic_icon("list") + "Reserve", reserves_path, {class: "item"}
-          = link_to semantic_icon("add circle") + "New Reserve", new_reserf_path, {class: "item"}
+              = link_to link_to semantic_icon("list") + "Listing Status", reserve_statuses_path, {class: "item"}
+              = link_to semantic_icon("add circle") + "Add New Status", new_reserve_status_path, {class: "item"}
+          = link_to semantic_icon("list") + "List All Booking", reserves_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "Add New Booking", new_reserf_path, {class: "item"}
       .ui.pointing.dropdown.link.item
         = semantic_icon("building")
         Rooms
@@ -35,25 +35,25 @@
         .menu
           .item
             = semantic_icon("dropdown")
-            %span.text Types
+            %span.text Type
             .menu
-              = link_to link_to semantic_icon("list") + "Types", room_types_path, {class: "item"}
-              = link_to semantic_icon("add circle") + "New Type", new_room_type_path, {class: "item"}
+              = link_to link_to semantic_icon("list") + "ListingType", room_types_path, {class: "item"}
+              = link_to semantic_icon("add circle") + "Add New Type", new_room_type_path, {class: "item"}
           .item
             = semantic_icon("dropdown")
-            %span.text Statuses
+            %span.text Status
             .menu
-              = link_to link_to semantic_icon("list") + "Statuses", room_statuses_path, {class: "item"}
-              = link_to semantic_icon("add circle") + "New Status", new_room_status_path, {class: "item"}
-          = link_to link_to semantic_icon("list") + "Rooms", rooms_path, {class: "item"}
-          = link_to semantic_icon("add circle") + "New Room", new_room_path, {class: "item"}
+              = link_to link_to semantic_icon("list") + "Listing Status", room_statuses_path, {class: "item"}
+              = link_to semantic_icon("add circle") + "Add New Status", new_room_status_path, {class: "item"}
+          = link_to link_to semantic_icon("list") + "Listing All Rooms", rooms_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "Add New Room", new_room_path, {class: "item"}
       .ui.pointing.dropdown.link.item
         = semantic_icon("users")
         Users
         = semantic_icon("dropdown")
         .menu
-          = link_to semantic_icon("list") + "Users", users_path, {class: "item"}
-          = link_to semantic_icon("add circle") + "New User", new_user_path, {class: "item"}
+          = link_to semantic_icon("list") + "Listing Users", users_path, {class: "item"}
+          = link_to semantic_icon("add circle") + "Add New User", new_user_path, {class: "item"}
       .right.menu
         .ui.pointing.dropdown.link.item
           = semantic_icon("user")
