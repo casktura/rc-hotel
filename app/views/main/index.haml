@@ -1,9 +1,18 @@
 .ui.padded.grid
   .column
-    .ui.segment
-      %h1 นี่คือหน้าหลัก
-      %p ยังไม่ได้ใส่อะไรเลย
-      %h3
-        ท่านเข้าชมหน้านี้เมื่อเวลา
-        = Time.now
-      %h1 ให้เพื่อนหาอะไรใส่
+    %h1 Room View
+    %table.ui.striped.blue.table
+      %thead
+        %tr
+          %th Room
+          - ((Date.today)...(Date.today + 15)).each do |date|
+            %th= date.strftime("%-d %B %Y")
+      %tbody
+        - @rooms.each do |room|
+          %tr
+            %td= room.number
+            - ((Date.today)...(Date.today + 15)).each do |date|
+              - if room.is_ready_on_date(date)
+                %td.positive
+              - else
+                %td.negative= semantic_icon("close")
