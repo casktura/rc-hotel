@@ -93,6 +93,6 @@ en:
         reserf_id: "Reserve"
         room: "Room"
         room_id: "Room"
-        optional_bed: "Optional Bed Amount"
-        optional_bed_cost: "Cost/Optional Bed"
+        optional_bed: "Extra Bed Amount"
+        optional_bed_cost: "Cost/Extra Bed"
         total_cost: "Cost/Night"

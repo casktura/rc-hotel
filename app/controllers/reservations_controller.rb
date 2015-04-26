@@ -14,8 +14,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new(reserf_id: params[:reserf_id])
-    #@reservation.reserf_id = params[:reserf_id]
+    @reservation = Reservation.new(reserf_id: params[:reserf_id], optional_bed_cost: 495)
     @reserf = Reserf.find(params[:reserf_id])
   end
 

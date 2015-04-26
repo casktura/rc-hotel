@@ -25,31 +25,36 @@
     z-index:9999;
 }
 
-//Background Pattern
-html, body {
-  height: 100%;
+//Backgrounf Image
+body {
+  background-image: url(bg.jpg);
 }
 
-body {
-  background:
-    linear-gradient(135deg, transparent 24%, #bbb 24%, #bbb 25%, transparent 25%)3.8em 1.29em,
-    linear-gradient(135deg, transparent 24%, #bbb 24%, #bbb 25%, transparent 25%)1.25em 1.25em,
-    linear-gradient(225deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)0 2.5em,
-    linear-gradient(45deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)2.5em 2.5em,
-    linear-gradient(135deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)0 2.5em,
-    linear-gradient(-45deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)2.5em 2.5em,
-    linear-gradient(45deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%),
-    linear-gradient(225deg, #bbb 0%, #bbb 1.5%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)2.5em 0,
-    linear-gradient(transparent 0%, transparent 8%, #ccc 8%, #ccc 10%,
-    transparent 10%, transparent 18%, #ccc 18%, #ccc 20%,
-    transparent 20%, transparent 28%, #ccc 28%, #ccc 30%,
-    transparent 30%, transparent 38%, #ccc 38%, #ccc 40%,
-    transparent 40%, transparent 48%, #ccc 48%, #ccc 50%,
-    transparent 50%, transparent 58%, #ccc 58%, #ccc 60%,
-    transparent 60%, transparent 68%, #ccc 68%, #ccc 70%,
-    transparent 70%, transparent 78%, #ccc 78%, #ccc 80%,
-    transparent 80%, transparent 88%, #ccc 88%, #ccc 90%,
-    transparent 90%, transparent 98%, #ccc 98%, #ccc 100%);
-  background-color: #ddd;
-  background-size: 5em 5em;
-}
+////Background Pattern
+//html, body {
+//  height: 100%;
+//}
+//
+//body {
+//  background:
+//    linear-gradient(135deg, transparent 24%, #bbb 24%, #bbb 25%, transparent 25%)3.8em 1.29em,
+//    linear-gradient(135deg, transparent 24%, #bbb 24%, #bbb 25%, transparent 25%)1.25em 1.25em,
+//    linear-gradient(225deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)0 2.5em,
+//    linear-gradient(45deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)2.5em 2.5em,
+//    linear-gradient(135deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)0 2.5em,
+//    linear-gradient(-45deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)2.5em 2.5em,
+//    linear-gradient(45deg, #bbb 0%, #bbb 1.6%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%),
+//    linear-gradient(225deg, #bbb 0%, #bbb 1.5%, #ddd 1.5%, #ddd 24%, #bbb 24%, #bbb 25%, transparent 25%)2.5em 0,
+//    linear-gradient(transparent 0%, transparent 8%, #ccc 8%, #ccc 10%,
+//    transparent 10%, transparent 18%, #ccc 18%, #ccc 20%,
+//    transparent 20%, transparent 28%, #ccc 28%, #ccc 30%,
+//    transparent 30%, transparent 38%, #ccc 38%, #ccc 40%,
+//    transparent 40%, transparent 48%, #ccc 48%, #ccc 50%,
+//    transparent 50%, transparent 58%, #ccc 58%, #ccc 60%,
+//    transparent 60%, transparent 68%, #ccc 68%, #ccc 70%,
+//    transparent 70%, transparent 78%, #ccc 78%, #ccc 80%,
+//    transparent 80%, transparent 88%, #ccc 88%, #ccc 90%,
+//    transparent 90%, transparent 98%, #ccc 98%, #ccc 100%);
+//  background-color: #ddd;
+//  background-size: 5em 5em;
+//}
