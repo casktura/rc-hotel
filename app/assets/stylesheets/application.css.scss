@@ -27,7 +27,7 @@
 
 //Backgrounf Image
 body {
-  background-image: url(/app/assets/images/bg.jpg);
+  background-image: asset-data-url("bg.jpg");
 }
 
 ////Background Pattern
