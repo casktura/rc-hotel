@@ -30,13 +30,13 @@
               = @reserf.check_in_date or "-"
             %h4
               = Reserf.human_attribute_name("check_in_time") + ":"
-              = @reserf.check_in_time or "-"
+              = (@reserf.check_in_time.strftime("%H:%M") if @reserf.check_in_time) or "-"
             %h4
               = Reserf.human_attribute_name("check_out_date") + ":"
               = @reserf.check_out_date or "-"
             %h4
               = Reserf.human_attribute_name("check_out_time") + ":"
-              = @reserf.check_out_time or "-"
+              = (@reserf.check_out_time.strftime("%H:%M") if @reserf.check_out_time) or "-"
           .column
             %h4
               = Reserf.human_attribute_name("reserve_status") + ":"

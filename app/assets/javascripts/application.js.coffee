@@ -16,6 +16,7 @@
 #= require semantic-ui
 #= require miniNotification
 #= require jquery.datetimepicker
+#= require jquery.stickytableheaders.min
 #= require_tree .
 $(document).on "page:change", ->
 
@@ -25,8 +26,9 @@ $(document).on "page:change", ->
   #Dropdown ของ Select Input
   $("select.ui.dropdown").dropdown()
 
-  #Sticky Menu Bar
+  #Sticky
   $(".ui.sticky").sticky()
+  $("table").stickyTableHeaders()
 
   #Notification
   $("#notification").miniNotification({position: "bottom", time: 10000})
